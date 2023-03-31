@@ -28,6 +28,8 @@ class _MyAppState extends State<MyApp> {
         ScannerLabelsConfig.PDF_GALLERY_FILLED_TITLE_MULTIPLE:
             "Only {PAGES_COUNT} Page"
       },
+      addImageButtonColor: Colors.teal,
+      doneButtonColor: Colors.tealAccent,
       //source: ScannerFileSource.CAMERA
     );
     if (doc != null) {
