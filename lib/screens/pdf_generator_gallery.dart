@@ -12,8 +12,10 @@ typedef Future<File?>? ScannerFilePicker();
 class PdfGeneratotGallery extends StatefulWidget {
   final ScannerFilePicker filePicker;
   final Map<dynamic, String> labelsConfig;
+  final Color addImageButtonColor;
+  final Color doneButtonColor;
 
-  const PdfGeneratotGallery(this.filePicker, this.labelsConfig);
+  const PdfGeneratotGallery(this.filePicker, this.labelsConfig, this.addImageButtonColor, this.doneButtonColor);
 
   @override
   _PdfGeneratotGalleryState createState() => _PdfGeneratotGalleryState();
@@ -101,6 +103,14 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
+      actions: [
+        IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.close,
+              color: Color(0xFFF44141),
+            ))
+      ],
       automaticallyImplyLeading: false,
       title: Row(
         children: [
@@ -201,7 +211,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                   if (files.isNotEmpty)
                     Expanded(
                         child: _mainControl(context,
-                            color: Colors.blue,
+                            color: widget.doneButtonColor,
                             icon: Icons.check,
                             title: widget.labelsConfig[ScannerLabelsConfig
                                     .PDF_GALLERY_DONE_LABEL] ??
@@ -213,11 +223,9 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                                 bottomLeft: Radius.circular(25)))),
                   Expanded(
                       child: _mainControl(context,
-                          color:
-                              files.isEmpty ? Colors.blue : Colors.cyanAccent,
+                          color: widget.addImageButtonColor,
                           icon: Icons.add_a_photo,
-                          textColor:
-                              files.isEmpty ? Colors.white : Colors.black,
+                          textColor: Colors.white,
                           title: widget.labelsConfig[ScannerLabelsConfig
                                   .PDF_GALLERY_ADD_IMAGE_LABEL] ??
                               "Add Image",
