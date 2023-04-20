@@ -27,11 +27,11 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 31
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         ndkVersion "21.1.6352462"
