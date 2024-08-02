@@ -40,7 +40,7 @@ class DocumentScannerFlutter {
       {ScannerFileSource? source,
       Map<dynamic, String> labelsConfig = const {},
       required Color addImageButtonColor,
-      required Color doneButtonColor, List<File> files = []}) async {
+      required Color doneButtonColor, List<File> files = const []}) async {
     Future<File?>? launchWrapper() {
       return launch(context, labelsConfig: labelsConfig, source: source);
     }
