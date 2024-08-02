@@ -40,7 +40,7 @@ class DocumentScannerFlutter {
       {ScannerFileSource? source,
       Map<dynamic, String> labelsConfig = const {},
       required Color addImageButtonColor,
-      required Color doneButtonColor}) async {
+      required Color doneButtonColor, List<File> files = []}) async {
     Future<File?>? launchWrapper() {
       return launch(context, labelsConfig: labelsConfig, source: source);
     }
@@ -49,7 +49,7 @@ class DocumentScannerFlutter {
         context,
         MaterialPageRoute(
             builder: (_) => PdfGeneratotGallery(launchWrapper, labelsConfig,
-                addImageButtonColor, doneButtonColor)));
+                addImageButtonColor, doneButtonColor, files)));
   }
 
   /// Scanner to get single scanned image
