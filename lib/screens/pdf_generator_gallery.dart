@@ -16,7 +16,7 @@ class PdfGeneratotGallery extends StatefulWidget {
   final Color doneButtonColor;
   final List<File> files;
 
-  const PdfGeneratotGallery(this.filePicker, this.labelsConfig, this.addImageButtonColor, this.doneButtonColor, this.files = []);
+  const PdfGeneratotGallery(this.filePicker, this.labelsConfig, this.addImageButtonColor, this.doneButtonColor, this.files = const [],);
 
   @override
   _PdfGeneratotGalleryState createState() => _PdfGeneratotGalleryState();
