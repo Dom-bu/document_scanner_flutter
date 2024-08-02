@@ -14,8 +14,9 @@ class PdfGeneratotGallery extends StatefulWidget {
   final Map<dynamic, String> labelsConfig;
   final Color addImageButtonColor;
   final Color doneButtonColor;
+  final List<File> files;
 
-  const PdfGeneratotGallery(this.filePicker, this.labelsConfig, this.addImageButtonColor, this.doneButtonColor);
+  const PdfGeneratotGallery(this.filePicker, this.labelsConfig, this.addImageButtonColor, this.doneButtonColor, this.files = []);
 
   @override
   _PdfGeneratotGalleryState createState() => _PdfGeneratotGalleryState();
@@ -23,6 +24,12 @@ class PdfGeneratotGallery extends StatefulWidget {
 
 class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
   List<File> files = [];
+
+  @override
+  void initState() {
+    super.initState();
+    files = widget.files;
+  }
 
   addImage() async {
     var file = await widget.filePicker();
